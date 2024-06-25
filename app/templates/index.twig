@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello, Conduit!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Conduit Application" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/awsm.min.css">
+</head>
+<body>
+    <main>
+        <h1>Hello, {{ name }}!</h1>
+        <small>Conduit v{{ conduit.version }}</small>
+        <hr>
+        <p><strong>Conduit</strong> has been successfully installed!</p>
+        <h2>Next Steps</h2>
+        <p>
+            If your project requires a database, add a <code>database</code> key to your <code>app.yml</code>,
+            as below;
+        </p>
+        <h3>MySQL</h3>
+        <small><em>(The below config works out of the box when using DDEV for local development)</em></small>
+        <pre>
+  database:
+    mysql:
+      host: db
+      user: db
+      pass: db
+      db: db</pre>
+        <h3>SQLite</h3>
+        <small><em>(The database <code>name</code> path is relative to the /app/database/ folder)</em></small>
+        <pre>
+  database:
+    sqlite:
+      name: db.db</pre>
+    </main>
+</body>
+</html>

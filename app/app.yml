@@ -1,0 +1,16 @@
+# Conduit app configuration
+name: HelloWorld
+version: "1.0"
+target: development
+# Database - uncomment the next 6 lines if you're using MySQL and DDEV.
+#database:
+#  mysql:
+#    host: db
+#    user: db
+#    pass: db
+#    db: db
+routes:
+  "/":
+    GET:
+      middleware: Home
+      template: index.twig

@@ -1,0 +1,27 @@
+{
+    "name": "loft39/conduit-project",
+    "type": "project",
+    "description": "Barebones project for the Conduit PHP framework.",
+    "license": "MIT",
+    "version": "1.0.1",
+    "authors": [
+        {
+            "name": "Charlie Wilson",
+            "email": "me@charliewilson.co.uk",
+            "homepage": "https://charlie.town"
+        }
+    ],
+    "homepage": "https://github.com/loft39/conduit-project",
+    "require": {
+        "loft39/conduit": "dev-master"
+    },
+    "scripts": {
+        "post-create-project-cmd": "ddev config",
+        "conduit-object-create": "Conduit\\Admin\\ObjectManager::create",
+        "conduit-user-db-init": "Conduit\\Admin\\UserManager::init"
+    },
+    "scripts-descriptions": {
+        "conduit-object-create": "Conduit: Creates a new object. Scaffolds an 'obj_*' table in your database and generates an object class.",
+        "conduit-user-db-init": "Conduit: Initialises the DB tables for Conduit's optional user functions."
+    }
+}
