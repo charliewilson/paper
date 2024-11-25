@@ -18,9 +18,13 @@ class ConduitUser extends GenericPlugin {
 
   public function requireLogin() {
     if (!$this->auth->isLoggedIn()) {
-      header("Location: ".$this->config['loginPage']);
+      header("Location: ".$this->config['loginPage']."?require");
       die();
     }
+  }
+
+  public function isLoggedIn() {
+    return $this->auth->isLoggedIn();
   }
 
   public function login($email, $password, $remember = true): bool {
@@ -28,10 +32,13 @@ class ConduitUser extends GenericPlugin {
     $rememberDuration = ($remember) ? (int)(60 * 60 * 24 * 365.25) : null;
 
     try {
-      $this->auth->login($email, $password, $rememberDuration);
+      $this->auth->loginWithUsername($email, $password, $rememberDuration);
       return true;
     }
-    catch (\Delight\Auth\InvalidEmailException | \Delight\Auth\InvalidPasswordException $e) {
+    catch (
+      \Delight\Auth\UnknownUsernameException |
+      \Delight\Auth\AmbiguousUsernameException |
+      \Delight\Auth\InvalidPasswordException $e) {
       return false;
     }
 
@@ -47,5 +54,9 @@ class ConduitUser extends GenericPlugin {
       return false;
     }
 
+  }
+
+  public function redirectToLoginPage($arg = "") {
+    header("Location: ".$this->config['loginPage'].$arg);
   }
 }

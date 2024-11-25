@@ -14,6 +14,15 @@ routes:
     GET:
       middleware: Home
       template: index.twig
+  "/login":
+    GET:
+      middleware: Auth_Login_GET
+      template: login.twig
+    POST:
+      middleware: Auth_Login_POST
+  "/logout":
+    GET:
+      middleware: Auth_Logout
 plugins:
   ConduitUser:
     loginPage: "/login"

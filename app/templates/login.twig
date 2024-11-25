@@ -9,13 +9,12 @@
 </head>
 <body>
     <main>
-      <h1>Paper</h1>
-      <p>You are currently {% if not loggedIn %}not {% endif %}logged in.</p>
-    {% if loggedIn %}
-<p><a href="/logout">Logout</a></p>
-{% else %}
-<p><a href="/login">Login</a></p>
-{% endif %}
+    <p>Login</p>
+    <form action="/login" method="POST">
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="Login">
+    </form>
     </main>
 </body>
 </html>
