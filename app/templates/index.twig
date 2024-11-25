@@ -9,9 +9,9 @@
 </head>
 <body>
     <main>
-      <h1>Paper</h1>
-      <p>You are currently {% if not loggedIn %}not {% endif %}logged in.</p>
-    {% if loggedIn %}
+      <h1>{{ name }}</h1>
+      <p>You are currently {% if not user.loggedIn %}not {% endif %}logged in.</p>
+    {% if user.loggedIn %}
 <p><a href="/logout">Logout</a></p>
 {% else %}
 <p><a href="/login">Login</a></p>

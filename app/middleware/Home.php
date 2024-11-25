@@ -1,18 +1,18 @@
 <?php
+require_once "Base_RequireLogin.php";
 
-class Home extends Conduit\Middleware\GenericMiddleware
+class Home extends Base_RequireLogin
 {
   public static function register($urlParams, $plugins): array
   {
 
-    $auth = $plugins["ConduitUser"];
+    $parentReturn = parent::register($urlParams, $plugins);
 
-    $auth->requireLogin();
-
-    return [
-        "name" => "Conduit",
-        "loggedIn" => $auth->isLoggedIn()
+    $return = [
+        "name" => "Paper"
     ];
+
+    return array_merge($parentReturn, $return);
 
   }
 }
